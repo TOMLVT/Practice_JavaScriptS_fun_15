@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container_btn button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .container_btn button.active {
+            background-color: #fff;
+            border: 1px solid #333;
+            color: #333;
+        }
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h4>Các mục sản phẩm</h4>
+    <div class="container_btn">
+        <button data-tab="hoa" class="active">Hoa</button>
+        <button data-tab="thoitrang">Thời trang</button>
+        <button data-tab="phukien">Phụ kiện</button>
+        <button data-tab="noithat">Nội thất</button>
+    </div>
+
+    <div id="hoa" class="tab-content active">
+        <h5>Sản phẩm Hoa</h5>
+        <p>Danh sách các sản phẩm hoa...</p>
+    </div>
+    <div id="thoitrang" class="tab-content">
+        <h5>Sản phẩm Thời trang</h5>
+        <p>Danh sách các sản phẩm thời trang...</p>
+    </div>
+    <div id="phukien" class="tab-content">
+        <h5>Sản phẩm Phụ kiện</h5>
+        <p>Danh sách các sản phẩm phụ kiện...</p>
+    </div>
+    <div id="noithat" class="tab-content">
+        <h5>Sản phẩm Nội thất</h5>
+        <p>Danh sách các sản phẩm nội thất...</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.container_btn button').forEach(button => {
+            button.addEventListener('click', () => {
+                
+                document.querySelector('.container_btn button.active').classList.remove('active');
+                document.querySelector('.tab-content.active').classList.remove('active');
+                
+               
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
